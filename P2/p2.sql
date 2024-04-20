@@ -18,7 +18,7 @@ ADD country_id INT AFTER id,
 ADD CONSTRAINT fk_country_id FOREIGN KEY (country_id) REFERENCES countries(id);
 
 UPDATE cases_normalized i
-JOIN countries c ON i.code = c.code
+JOIN countries c ON i.code = c.code AND i.entity = c.country
 SET i.country_id = c.id
 WHERE i.id > 0;
 
